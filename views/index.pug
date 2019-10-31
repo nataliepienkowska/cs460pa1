@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Display all users that have at least 1 review.
+  p SELECT u.user_id FROM Users u WHERE u.review_count >= 1
+  button.btn.btn-primary(type='submit') Show Query Results
+  form(method='POST' action='/commands')
+    div.form-group
+      label(for='command') SQL Command:
+      input#command.form-control(type='text', command = 'command')
+    button.btn.btn-primary(type='submit') Show Query Result
